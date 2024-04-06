@@ -3,4 +3,4 @@
  亮暗图片拼接工具
 
  # 效果预览
- [GIF](./electron-dark-to-light.gif)
+ ![](./electron-dark-to-light.gif)
