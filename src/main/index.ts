@@ -30,12 +30,14 @@ function createWindow(): void {
   })
 
   const handleScreenShots = () => {
+    mainWindow.hide()
     exec('screencapture -i -U -c -o -s', () => {
       // 从剪切板上取到图片
       const buffer = clipboard.readImage().toPNG()
       const img = 'data:image/png;base64,' + buffer.toString('base64')
       // mainWin是窗口实例，这里是将图片传给渲染进程
       mainWindow.webContents.send('captureScreenBack', img)
+      mainWindow.show()
     })
   }
   ipcMain.on('OPEN_CUT_SCREEN', async () => {
